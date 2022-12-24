@@ -592,6 +592,7 @@
         this.$refs['preForm'].getFormData().then(formData => {
           this.formDataJson = JSON.stringify(formData, null, '  ')
           this.formDataRawJson = JSON.stringify(formData)
+          localStorage.setItem("v-form-data", this.formDataRawJson)
           this.showFormDataDialogFlag = true
         }).catch(error => {
           this.$message.error(error)
