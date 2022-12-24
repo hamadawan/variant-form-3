@@ -150,8 +150,15 @@
     mounted() {
       this.initLocale()
       this.handleOnMounted()
+      this.fetchAndSetFormData()
     },
     methods: {
+      fetchAndSetFormData () {
+        // fetch data
+        const newFormData = JSON.parse(localStorage.getItem("v-form-data"))
+        // set data to form
+        newFormData && this.setFormData(newFormData)
+      },
       initFormObject(insertHtmlCodeFlag = true) {
         this.formId = 'vfRender' + generateId()
         if (!!insertHtmlCodeFlag) {
